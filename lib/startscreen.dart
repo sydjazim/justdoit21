@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:justdoit21/login.dart';
 class StartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class StartScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => StartScreen()),
+                    MaterialPageRoute(builder: (context) =>Login()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -94,3 +94,9 @@ class StartScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
