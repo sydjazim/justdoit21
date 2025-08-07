@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:justdoit21/register.dart';
+import 'package:justdoit21/login.dart';
 
-
-class Login extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  State<Login> createState() => _LoginState();
+  State<Register> createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginState extends State<Register> {
   final TextEditingController usernamecontroller = TextEditingController();
   final TextEditingController passwordcontroller = TextEditingController();
 
@@ -32,7 +31,7 @@ class _LoginState extends State<Login> {
           Padding(
             padding: const EdgeInsets.only(left: 15),
             child: Text(
-              "Login",
+              "Register",
               style: TextStyle(
                 letterSpacing: 2,
                 color: Colors.white,
@@ -120,35 +119,78 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              SizedBox(height:50),
-               Padding(
-                 padding: const EdgeInsets.only(left:100,right: 100),
-                 child: ElevatedButton(
+              SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Text(
+                  "Confirm Password",
+                  style: TextStyle(color: Colors.white70, fontSize: 16),
+                ),
+              ),
+              SizedBox(height: 8),
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: SizedBox(
+                  height: 50,
+                  width: 470,
+                  child: TextField(
+                    controller: passwordcontroller,
+                    obscureText: _obscureText,
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      hintText: "Enter your Password",
+                      hintStyle: TextStyle(color: Colors.white38),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white24),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscureText
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: Colors.white54,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscureText = !_obscureText;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 50),
+              Padding(
+                padding: const EdgeInsets.only(left: 100, right: 100),
+                child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Login()),
+                      MaterialPageRoute(builder: (context) => Register()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
                     elevation: 2,
-                    minimumSize: Size(300, 50)
+                    minimumSize: Size(300, 50),
                   ),
                   child: Text(
                     'Login',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
+                    style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
-                               ),
-               ),
-              SizedBox(height: 200),
-              Row(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,
+                ),
+              ),
+              SizedBox(height: 100),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don't have a account?",
+                    "Already have a account?",
                     style: TextStyle(
                       color: Colors.white54,
                       fontFamily: "lato",
@@ -157,14 +199,13 @@ class _LoginState extends State<Login> {
                   ),
                   TextButton(
                     onPressed: () {
-                     Navigator.push(
-                       context,
-                       MaterialPageRoute(builder: (context) => Register()),
-                     );
-
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Login()),
+                      );
                     },
                     child: Text(
-                      "Register",
+                      "Login",
                       style: TextStyle(
                         color: Colors.white,
                         fontFamily: "lato",
